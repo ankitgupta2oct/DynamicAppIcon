@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DynamicAppIcon.ThemeSwitchPage"
+             xmlns:fonts="clr-namespace:DynamicAppIcon.Fonts" BackgroundColor="{AppThemeBinding Dark='Black', Light='White'}">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark='White', Light='Black'}"/>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="LightModeClicked"/>
+            </StackLayout.GestureRecognizers>
+
+            <Label FontFamily="Regular" Text="{x:Static fonts:Fonts.Bulb}" FontSize="100" />
+            <Label Text="Light" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="End" />
+        </StackLayout>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="DarkModeClicked"/>
+            </StackLayout.GestureRecognizers>
+
+            <Label FontFamily="Solid" Text="{x:Static fonts:Fonts.Bulb}" FontSize="100" />
+            <Label Text="Dark" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="End" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
